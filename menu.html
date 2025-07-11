@@ -1,81 +1,154 @@
 <!DOCTYPE html>
-<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
-<html class="no-js" lang="en" >
-
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- If you delete this meta tag World War Z will become a reality -->
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Publications</title>
-
-  <!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like -->
-  <!--  link rel="stylesheet" href="css/normalize.css"-->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Foundation CSS -->
   <link rel="stylesheet" href="css/foundation.css">
-
-  <!-- If you are using the gem version, you need this only -->
   <link rel="stylesheet" href="css/app.css">
-
-<!--  <script src="js/vendor/modernizr.js"></script>-->
-
+  <style>
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #e3ecf7; /* soft blue, matches a modern palette */
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background: url('images/greenbar.jpg') no-repeat left top fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(34,42,63,0.08);
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar li {
+      margin: 0 1rem;
+      position: relative;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+    }
+    .navbar a:hover {
+      color: #4fc3f7;
+    }
+    .navbar .fa {
+      margin-right: 0.5rem;
+    }
+    /* Dropdown styles */
+    .dropdown {
+      cursor: pointer;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #222a3f;
+      min-width: 180px;
+      box-shadow: 0 2px 8px rgba(34,42,63,0.08);
+      z-index: 200;
+      top: 2.5rem;
+      left: 0;
+      border-radius: 0 0 8px 8px;
+      padding: 0.5rem 0;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .dropdown-content a {
+      color: #fff;
+      padding: 0.5rem 1rem;
+      display: block;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .dropdown-content a:hover {
+      background: #4fc3f7;
+      color: #222a3f;
+    }
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content,
+    .dropdown-content:hover {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 700px) {
+      .navbar ul {
+        flex-direction: column;
+        background: #222a3f;
+        position: absolute;
+        top: 3.5rem;
+        left: 0;
+        right: 0;
+        display: none;
+      }
+      .navbar.active ul {
+        display: flex;
+      }
+      .navbar .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+        margin-left: auto;
+        margin-right: 1rem;
+      }
+      .dropdown-content {
+        position: static;
+        min-width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+    .menu-toggle {
+      display: none;
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="row" style="margin-top:1px" style="background-color: #000000" >
-    <div class="large-12 columns"><!-- style="background-color: #000000" > -->
-
-          <ul class="button-group round even-3">
-              <li><a href="index.html" class="secondary button">Home</a></li>
-                <li><a href="projects/index.html" class="secondary button dropdown" data-dropdown="hover1" data-options="is_hover:true; hover_timeout:500">Projects </a></li>
-              <li><a href="https://nbiocean.bitbucket.io/" class="secondary button">TEAM OCEAN</a> </li>
-<!--                <li><a href="http://climate-geophysics.nbi.ku.dk/research/oceanography/bornoe_workshops/" class="secondary button dropdown" target="_blank" data-dropdown="hover2" data-options="is_hover:true; hover_timeout:500">Born&ouml; Workshops</a></li>-->
-
-        </ul>
-                <ul id="hover1"  class="f-dropdown small" data-dropdown-content>
-
-                        <li><a href="projects/carra2.html">CARRA</a> </li>
-			<li><a href="projects/preface.html">PREFACE</a> </li>
-                        <li><a href="projects/ice2ice.html">ICE2ICE</a> </li>
-
-
-                </ul>
-
-
-<!--                <ul id="hover2" class="f-dropdown small" data-dropdown-content>
-
-
-
-	      <li><a href="http://nbiocean.bitbucket.org/bornoe2015-cfd/" target="_blank"> Born&ouml; 2015 - CFD</a></li>
-                      <li><a href="bornoe2015/index.html" target="_blank"> Born&ouml; 2015 - Watermass Transformation</a></li>
-                      <li><a href="bornoe2016/index.html" target="_blank"> Born&ouml; 2016 - Ocean Turbulence</a></li>
-                      <li><a href="bornoe2016b/index.html" target="_blank"> Born&ouml; 2016 - DO Events</a></li> 
-
-
-                </ul>-->
-    </div>
-  </div>
-    <!-- Latest version of jQuery -->
-    <script src="js/vendor/jquery.js"></script>
-
-    <!-- Included JS Files (Unminified) -->
-    <!-- [JS Files] -->
-    <!-- We include all the unminified JS as well. Uncomment to use them instead -->
-
-    <!-- Included JS Files (Minified) -->
-    <script src="js/foundation.min.js"></script>
-
-    <!-- Initialize JS Plugins -->
-    <script src="js/app.js"></script>
-
-<!--    <script src="javascripts/foundation.dropdown.js"></script>
-    <script src="javascripts/foundation.topbar.js"></script>
-
-    <script src="javascripts/foundation.js"></script> -->
+  <nav class="navbar" id="navbar">
+    <span class="menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></span>
+    <ul>
+      <li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>
+      <li class="dropdown"><a href="#"><i class="fa fa-folder-open"></i>Projects <i class="fa fa-caret-down"></i></a>
+        <div class="dropdown-content">
+          <a href="projects/carra2.html"><i class="fa fa-water"></i>CARRA</a>
+          <a href="projects/ice2ice.html"><i class="fa fa-snowflake"></i>ICE2ICE</a>
+          <a href="projects/preface.html"><i class="fa fa-book"></i>PREFACE</a>
+        </div>
+      </li>
+      <li><a href="https://nbiocean.bitbucket.io/" target="_blank" rel="noopener"><i class="fa fa-users"></i>TEAM OCEAN <i class="fa fa-external-link-alt" style="margin-left:0.3em;"></i></a></li>
+    </ul>
+  </nav>
   <script>
-    $(document).foundation();
+    // Responsive menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+    menuToggle.addEventListener('click', function() {
+      navbar.classList.toggle('active');
+    });
   </script>
 </body>
-
-
 </html>
 

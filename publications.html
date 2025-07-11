@@ -5,15 +5,48 @@
 <head>
   <meta charset="utf-8">
   <!-- If you delete this meta tag World War Z will become a reality -->
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>S&oslash;ren Borg Thorsen | Projects</title>
-
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like -->
   <!--  link rel="stylesheet" href="css/normalize.css"-->
   <link rel="stylesheet" href="css/foundation.css">
 
   <!-- If you are using the gem version, you need this only -->
   <link rel="stylesheet" href="css/app.css">
+  <style>
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #e3ecf7;
+      margin: 0;
+      padding: 0;
+    }
+    .main-content {
+      max-width: 1100px;
+      margin: 2rem auto;
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(34,42,63,0.08);
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .main-content h1, .main-content h2, .main-content h3, .main-content h4 {
+      color: #222a3f;
+      font-family: 'Montserrat', Arial, sans-serif;
+      text-align: center;
+    }
+    .main-content p {
+      font-size: 1.1rem;
+      color: #222a3f;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+  </style>
 
     <script src="js/vendor/jquery.js"></script>
 
@@ -30,7 +63,7 @@
 
 <body>
 <div id="includedContent"></div> 
-<div class="row"> 
+<div class="main-content"> 
 <h4>2018</h4><br>
 <b>A spatiotemporal reconstruction of sea-surface temperatures in the North Atlantic during Dansgaard–Oeschger events 5–8 </b><br>
 <p>Jensen, M.F., Nummelin, A., <i>Nielsen, S.B.</i>, Sadatzki, H., Sessford, E., Risebrobakken, B., Andersson, C., Voelker, A., Roberts, W.H.G., Pedro, J., Born, A.<br>
