@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Søren Borg Thorsen</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #e3ecf7;
+      margin: 0;
+      padding: 0;
+    }
+    .main-content {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(34,42,63,0.08);
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .main-content h1 {
+      color: #222a3f;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .contact-info {
+      font-size: 1.1rem;
+      color: #222a3f;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .contact-info i {
+      color: #44477A;
+      margin-right: 0.5em;
+    }
+    .contact-info a {
+      color: #4fc3f7;
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="includedContent"></div>
+  <script src="js/vendor/jquery.js"></script>
+  <script>
+    $(function(){
+      $("#includedContent").load("menu.html");
+    });
+  </script>
+  <div class="main-content">
+    <h1>Contact</h1>
+    <div class="contact-info">
+      <p><i class="fa fa-user"></i> S&oslash;ren Borg Thorsen</p>
+    <p><i class="fa fa-envelope"></i> 
+      <a href="#" id="email-link"></a>
+      <script>
+        // Obfuscated email to avoid spam bots
+        const user = 'sbn';
+        const domain = 'dmi.dk';
+        const email = user + '@' + domain;
+        document.getElementById('email-link').setAttribute('href', 'mailto:' + email);
+        document.getElementById('email-link').textContent = email;
+      </script>
+    </p>
+      <p><i class="fa fa-map-marker-alt"></i> Danish Meteorological Institute, Sankt Kjelds Plads 11, 2100, K&oslash;benhavn &Oslash; </p>
+    <p>
+      <a href="https://dk.linkedin.com/in/s%C3%B8ren-borg-thorsen-47a403b5?" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin" style="color:#0A66C2;"></i> LinkedIn
+      </a>
+    </p>
+    <p>
+      <a href="https://github.com/sbnielsen" target="_blank" rel="noopener">
+        <i class="fab fa-github" style="color:#222a3f;"></i> sbnielsen
+      </a>
+    </p>
+    </div>
+  </div>
+</body>
+</html>
