@@ -46,6 +46,61 @@
       line-height: 1.7;
       margin-bottom: 1rem;
     }
+    .sidebar {
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(34,42,63,0.08);
+      padding: 2rem 1rem;
+      height: fit-content;
+    }
+    .sidebar ul {
+      margin: 0;
+    }
+    .sidebar a.year-link {
+      display: block;
+      color: #44477A;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      transition: color 0.2s;
+    }
+    .sidebar a.year-link:hover {
+      color: #4fc3f7;
+    }
+    .publication-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .publication {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 6px rgba(34,42,63,0.08);
+      padding: 1.5rem 2rem;
+    }
+    .publication h2 {
+      color: #44477A;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+    .publication b {
+      font-size: 1.1rem;
+      color: #222a3f;
+    }
+    .publication p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #222a3f;
+    }
+    @media (max-width: 900px) {
+      .main-content {
+        flex-direction: column;
+      }
+      .sidebar {
+        margin-bottom: 2rem;
+      }
+    }
   </style>
 
     <script src="js/vendor/jquery.js"></script>
@@ -62,34 +117,41 @@
 
 
 <body>
-<div id="includedContent"></div> 
-<div class="main-content"> 
-<h4>2018</h4><br>
-<b>A spatiotemporal reconstruction of sea-surface temperatures in the North Atlantic during Dansgaard–Oeschger events 5–8 </b><br>
-<p>Jensen, M.F., Nummelin, A., <i>Nielsen, S.B.</i>, Sadatzki, H., Sessford, E., Risebrobakken, B., Andersson, C., Voelker, A., Roberts, W.H.G., Pedro, J., Born, A.<br>
-Climate of the Past, 14, 901-922, 2018.<br>
-<a href="https://doi.org/10.5194/cp-14-901-2018">https://doi.org/10.5194/cp-14-901-2018</a><br></p>
-
-<p>  </p>
-
-<b>An energetically consistent mixing parameterization in CCSM4</b> <a href="idemix.pdf">PDF</a><br>
-<p><i>Nielsen, S.B.</i>, Jochum, M., Eden, C., Nuterman, R.<br>
-Ocean Modelling, 127, 46-54, 2018.<br>
-<a href="https://doi.org/10.1016/j.ocemod.2018.03.002">https://doi.org/10.1016/j.ocemod.2018.03.002</a><br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.
-</p>
-
-<p>  </p>
-
-<b>Two-Timescale Carbon Cycle Response to an AMOC Collapse</b> <br>
-<p><i>Nielsen, S.B.</i>, Jochum, M., Pedro, J.B., Eden, C., Nuterman, R.<br>
-Paleoceanography and Paleoclimatology, 34, 511-523, 2019.<br>
-<a href="https://doi.org/10.1029/2018PA003481">https://doi.org/10.1029/2018PA003481</a><br>
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>..
-</p>
-
-
-
+<div id="includedContent"></div>
+<div class="main-content">
+  <h1>Publications</h1>
+  <div class="publication-list">
+    <div class="publication" id="pub-2019">
+      <h2>2019</h2>
+      <b>Two-Timescale Carbon Cycle Response to an AMOC Collapse</b><br>
+      <p><i>Nielsen, S.B.</i>, Jochum, M., Pedro, J.B., Eden, C., Nuterman, R.<br>
+      Paleoceanography and Paleoclimatology, 34, 511-523, 2019.<br>
+      <a href="https://doi.org/10.1029/2018PA003481" target="_blank" rel="noopener noreferrer">https://doi.org/10.1029/2018PA003481</a><br>
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" />
+      </a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+      </p>
+    </div>
+    <div class="publication" id="pub-2018">
+      <h2>2018</h2>
+      <b>An energetically consistent mixing parameterization in CCSM4</b> <a href="idemix.pdf">PDF</a><br>
+      <p><i>Nielsen, S.B.</i>, Jochum, M., Eden, C., Nuterman, R.<br>
+      Ocean Modelling, 127, 46-54, 2018.<br>
+      <a href="https://doi.org/10.1016/j.ocemod.2018.03.002" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.ocemod.2018.03.002</a><br>
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/3.0/80x15.png" />
+      </a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/3.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License</a>.
+      </p>
+      <b>A spatiotemporal reconstruction of sea-surface temperatures in the North Atlantic during Dansgaard–Oeschger events 5–8 </b><br>
+      <p>Jensen, M.F., Nummelin, A., <i>Nielsen, S.B.</i>, Sadatzki, H., Sessford, E., Risebrobakken, B., Andersson, C., Voelker, A., Roberts, W.H.G., Pedro, J., Born, A.<br>
+      Climate of the Past, 14, 901-922, 2018.<br>
+      <a href="https://doi.org/10.5194/cp-14-901-2018" target="_blank" rel="noopener noreferrer">https://doi.org/10.5194/cp-14-901-2018</a><br>
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+      </a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+      </p>
+    </div>
+  </div>
 </div>
 
 
