@@ -180,6 +180,46 @@
 </div>
 </div>
 </div>
+<script>
+    // Responsive menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+    menuToggle.addEventListener('click', function() {
+      navbar.classList.toggle('active');
+    });
+
+    // Dropdown hover timeout
+    const dropdown = document.getElementById('projects-dropdown');
+    const dropdownContent = dropdown.querySelector('.dropdown-content');
+    let dropdownTimeout;
+
+    dropdown.addEventListener('mouseenter', function() {
+      clearTimeout(dropdownTimeout);
+      dropdownContent.style.display = 'block';
+      dropdownContent.style.opacity = '1';
+      dropdownContent.style.transform = 'translateY(0)';
+    });
+    dropdown.addEventListener('mouseleave', function() {
+      dropdownTimeout = setTimeout(function() {
+        dropdownContent.style.display = '';
+        dropdownContent.style.opacity = '';
+        dropdownContent.style.transform = '';
+      }, 500);
+    });
+    dropdownContent.addEventListener('mouseenter', function() {
+      clearTimeout(dropdownTimeout);
+      dropdownContent.style.display = 'block';
+      dropdownContent.style.opacity = '1';
+      dropdownContent.style.transform = 'translateY(0)';
+    });
+    dropdownContent.addEventListener('mouseleave', function() {
+      dropdownTimeout = setTimeout(function() {
+        dropdownContent.style.display = '';
+        dropdownContent.style.opacity = '';
+        dropdownContent.style.transform = '';
+      }, 500);
+    });
+  </script>
 </body>
 
 </html>
