@@ -154,69 +154,25 @@
 </head>
 
 <body>
-<div id="includedContent"></div>
-<div class="main-content">
-   <div class="row">
-<div class="large-12 columns">
-   <div class="small-12 large-9 columns">
-     <h1 style="color:#44477A">PREFACE</h1><br>
-     <h4>Enhancing <b>PRE</b>diction o<b>F</b> Tropical <b>A</b>tlantic <b>C</b>limat<b>E</b> and its impacts</h4><br>
-     <p>Objectives are to improve simulations and predictions and reduce uncertainties in our knowledge of the Tropical Atlantic climate.<br>
-     My work consisted of participating in the research cruise on FS Meteor, leg <a href="https://www.ldf.uni-hamburg.de/meteor/wochenberichte/wochenberichte-meteor/m117-m120/m120-scr1.pdf" >M120</a>. The goals were to <br>
-     (1) quantify  the  physical  processes  controlling  the  mixed  layer  heat  and freshwater balance in the region of the eastern boundary of the South Atlantic including the loss  of  heat  due  to  turbulence  at  the  base  of  the  mixed  layer  and  in  the  thermocline.<br>
-     (2) evaluate  variability  of  eastern  boundary  current  transport,  variability  in  the  advection  of anomalous  water  masses  along  the  eastern  boundary  and  wave  propagation  along  the coastal wave guides.<br></p>
-     <p></p>
-     <p>My work included CTD-watch (including uCTD) and Microstructure measurements, glider and mooring preparations and calibration of salinity measurements.</p>
-     <p></p>
-     <p>Visit the <a href="http://preface.b.uib.no">Official website</a>.</p>
-	
-   </div>
-   <div class="small-12 large-3 columns">
-      <p><img src="photos/PREFACE_logo.jpg">
-   </div>
-</div>
-</div>
-</div>
+  <div id="includedContent"></div>
+  <script src="js/vendor/jquery.js"></script>
   <script>
-    // Responsive menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const navbar = document.getElementById('navbar');
-    menuToggle.addEventListener('click', function() {
-      navbar.classList.toggle('active');
-    });
-
-    // Dropdown hover timeout
-    const dropdown = document.getElementById('projects-dropdown');
-    const dropdownContent = dropdown.querySelector('.dropdown-content');
-    let dropdownTimeout;
-
-    dropdown.addEventListener('mouseenter', function() {
-      clearTimeout(dropdownTimeout);
-      dropdownContent.style.display = 'block';
-      dropdownContent.style.opacity = '1';
-      dropdownContent.style.transform = 'translateY(0)';
-    });
-    dropdown.addEventListener('mouseleave', function() {
-      dropdownTimeout = setTimeout(function() {
-        dropdownContent.style.display = '';
-        dropdownContent.style.opacity = '';
-        dropdownContent.style.transform = '';
-      }, 500);
-    });
-    dropdownContent.addEventListener('mouseenter', function() {
-      clearTimeout(dropdownTimeout);
-      dropdownContent.style.display = 'block';
-      dropdownContent.style.opacity = '1';
-      dropdownContent.style.transform = 'translateY(0)';
-    });
-    dropdownContent.addEventListener('mouseleave', function() {
-      dropdownTimeout = setTimeout(function() {
-        dropdownContent.style.display = '';
-        dropdownContent.style.opacity = '';
-        dropdownContent.style.transform = '';
-      }, 500);
+    $(function(){
+      $("#includedContent").load("menu.html");
     });
   </script>
-</body>
-
-</html>
+  <div class="main-content">
+     <div class="row">
+  <div class="large-12 columns">
+     <div class="small-12 large-9 columns">
+       <h1 style="color:#44477A">PREFACE</h1><br>
+       <h4>Enhancing <b>PRE</b>diction o<b>F</b> Tropical <b>A</b>tlantic <b>C</b>limat<b>E</b> and its impacts</h4><br>
+       <p>Objectives are to improve simulations and predictions and reduce uncertainties in our knowledge of the Tropical Atlantic climate.<br>
+       My work consisted of participating in the research cruise on FS Meteor, leg <a href="https://www.ldf.uni-hamburg.de/meteor/wochenberichte/wochenberichte-meteor/m117-m120/m120-scr1.pdf" >M120</a>. The goals were to <br>
+       (1) quantify  the  physical  processes  controlling  the  mixed  layer  heat  and freshwater balance in the region of the eastern boundary of the South Atlantic including the loss  of  heat  due  to  turbulence  at  the  base  of  the  mixed  layer  and  in  the  thermocline.<br>
+       (2) evaluate  variability  of  eastern  boundary  current  transport,  variability  in  the  advection  of anomalous  water  masses  along  the  eastern  boundary  and  wave  propagation  along  the coastal wave guides.<br></p>
+       <p></p>
+       <p>My work included CTD-watch (including uCTD) and Microstructure measurements, glider and mooring preparations and calibration of salinity measurements.</p>
+       <p></p>
+       <p>Visit the <a href="http://preface.b.uib.no">Official website</a>.</p>
+  

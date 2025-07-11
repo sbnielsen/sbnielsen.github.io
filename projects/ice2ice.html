@@ -154,7 +154,13 @@
 </head>
 
 <body>
-<div id="includedContent"></div>
+  <div id="includedContent"></div>
+  <script src="js/vendor/jquery.js"></script>
+  <script>
+    $(function(){
+      $("#includedContent").load("menu.html");
+    });
+  </script>
 <div class="main-content">
 <div class="row">
 <div class="large-12 columns">

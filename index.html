@@ -175,20 +175,13 @@
   </style>
 </head>
 <body>
-  <nav class="navbar" id="navbar">
-    <span class="menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></span>
-    <ul>
-      <li><a href="index.html"><i class="fa fa-home"></i>Home</a></li>
-      <li class="dropdown"><a href="#"><i class="fa fa-folder-open"></i>Projects <i class="fa fa-caret-down"></i></a>
-        <div class="dropdown-content">
-          <a href="projects/carra2.html"><i class="fa fa-water"></i>CARRA</a>
-          <a href="projects/ice2ice.html"><i class="fa fa-snowflake"></i>ICE2ICE</a>
-          <a href="projects/preface.html"><i class="fa fa-book"></i>PREFACE</a>
-        </div>
-      </li>
-      <li><a href="https://nbiocean.bitbucket.io/" target="_blank" rel="noopener"><i class="fa fa-users"></i>TEAM OCEAN <i class="fa fa-external-link-alt" style="margin-left:0.3em;"></i></a></li>
-    </ul>
-  </nav>
+  <div id="includedContent"></div>
+  <script src="js/vendor/jquery.js"></script>
+  <script>
+    $(function(){
+      $("#includedContent").load("menu.html");
+    });
+  </script>
   <div class="main-content">
     <div style="flex:1; min-width:300px;">
       <h1>S&oslash;ren Borg Thorsen</h1>
@@ -216,45 +209,5 @@
       </div>
     </div>
   </div>
-  <script>
-    // Responsive menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const navbar = document.getElementById('navbar');
-    menuToggle.addEventListener('click', function() {
-      navbar.classList.toggle('active');
-    });
-
-    // Dropdown hover timeout
-    const dropdown = document.getElementById('projects-dropdown');
-    const dropdownContent = dropdown.querySelector('.dropdown-content');
-    let dropdownTimeout;
-
-    dropdown.addEventListener('mouseenter', function() {
-      clearTimeout(dropdownTimeout);
-      dropdownContent.style.display = 'block';
-      dropdownContent.style.opacity = '1';
-      dropdownContent.style.transform = 'translateY(0)';
-    });
-    dropdown.addEventListener('mouseleave', function() {
-      dropdownTimeout = setTimeout(function() {
-        dropdownContent.style.display = '';
-        dropdownContent.style.opacity = '';
-        dropdownContent.style.transform = '';
-      }, 500);
-    });
-    dropdownContent.addEventListener('mouseenter', function() {
-      clearTimeout(dropdownTimeout);
-      dropdownContent.style.display = 'block';
-      dropdownContent.style.opacity = '1';
-      dropdownContent.style.transform = 'translateY(0)';
-    });
-    dropdownContent.addEventListener('mouseleave', function() {
-      dropdownTimeout = setTimeout(function() {
-        dropdownContent.style.display = '';
-        dropdownContent.style.opacity = '';
-        dropdownContent.style.transform = '';
-      }, 500);
-    });
-  </script>
 </body>
 </html>
