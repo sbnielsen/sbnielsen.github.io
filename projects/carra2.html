@@ -14,25 +14,119 @@
   <!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like -->
   <!--  link rel="stylesheet" href="css/normalize.css"-->
   <link rel="stylesheet" href="../css/foundation.css">
-
-  <!-- If you are using the gem version, you need this only -->
   <link rel="stylesheet" href="../css/app.css">
-    <script src="../js/vendor/jquery.js"></script>
-
-      <script> 
-    $(function(){
-      $("#includedContent").load("menu.html"); 
-    });
-    </script>
-
-<!--  <script src="js/vendor/modernizr.js"></script>-->
-
   <style>
     body {
       font-family: 'Montserrat', Arial, sans-serif;
       background: #e3ecf7;
       margin: 0;
       padding: 0;
+    }
+    .navbar {
+      background: url('../images/greenbar.jpg') no-repeat left top fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(34,42,63,0.08);
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar li {
+      margin: 0 1rem;
+      position: relative;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+    }
+    .navbar a:hover {
+      color: #4fc3f7;
+    }
+    .navbar .fa {
+      margin-right: 0.5rem;
+    }
+    /* Dropdown styles */
+    .dropdown {
+      cursor: pointer;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #222a3f;
+      min-width: 180px;
+      box-shadow: 0 2px 8px rgba(34,42,63,0.08);
+      z-index: 200;
+      top: 2.5rem;
+      left: 0;
+      border-radius: 0 0 8px 8px;
+      padding: 0.5rem 0;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .dropdown-content a {
+      color: #fff;
+      padding: 0.5rem 1rem;
+      display: block;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .dropdown-content a:hover {
+      background: #4fc3f7;
+      color: #222a3f;
+    }
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content,
+    .dropdown-content:hover {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 700px) {
+      .navbar ul {
+        flex-direction: column;
+        background: #222a3f;
+        position: absolute;
+        top: 3.5rem;
+        left: 0;
+        right: 0;
+        display: none;
+      }
+      .navbar.active ul {
+        display: flex;
+      }
+      .navbar .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+        margin-left: auto;
+        margin-right: 1rem;
+      }
+      .dropdown-content {
+        position: static;
+        min-width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+    .menu-toggle {
+      display: none;
     }
     .main-content {
       max-width: 1100px;
