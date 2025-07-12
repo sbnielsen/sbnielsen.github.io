@@ -156,6 +156,19 @@
       display: block;
       margin: 0 auto 1rem auto;
     }
+    /* Headshot effect */
+    .main-content img[title="Søren Borg Thorsen"] {
+      transition: transform 0.35s cubic-bezier(.4,2,.3,1), box-shadow 0.35s, border-color 0.35s;
+      box-shadow: 0 4px 24px rgba(34,42,63,0.18);
+      border: 6px solid #222a3f;
+      position: relative;
+    }
+    .main-content img[title="Søren Borg Thorsen"]:hover {
+      transform: scale(1.07);
+      box-shadow: 0 8px 32px rgba(34,42,63,0.28);
+      border-color: #4fc3f7;
+      filter: drop-shadow(0 0 16px #4fc3f7aa);
+    }
     .contact-card {
       background: #e3ecf7;
       border-radius: 8px;
@@ -171,6 +184,139 @@
       color: #222a3f;
       font-size: 1rem;
       margin: 0.2rem 0;
+    }
+    /* Animation overlay styles */
+    .effect-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 9999;
+      pointer-events: none;
+      background: transparent;
+      overflow: hidden;
+      transition: background 0.5s;
+    }
+    .effect-overlay.hide {
+      display: none;
+    }
+    /* Rain drops */
+    .raindrop {
+      position: absolute;
+      width: 2px;
+      height: 18px;
+      background: #4fc3f7;
+      opacity: 0.7;
+      border-radius: 1px;
+      animation: raindrop-fall 2.5s linear infinite;
+    }
+    @keyframes raindrop-fall {
+      0% { top: -20px; opacity: 0.7; }
+      80% { opacity: 0.7; }
+      100% { top: 100vh; opacity: 0; }
+    }
+    /* Snow flakes */
+    .snowflake {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.8;
+      box-shadow: 0 0 8px #fff;
+      animation: snowflake-fall 6s linear infinite;
+    }
+    @keyframes snowflake-fall {
+      0% { top: -10px; opacity: 0.8; }
+      80% { opacity: 0.8; }
+      100% { top: 100vh; opacity: 0; }
+    }
+    /* Fog line effect - thinner, denser */
+    .fog-line {
+      position: absolute;
+      left: -120vw;
+      width: 120vw;
+      height: 10px;
+      background: linear-gradient(90deg, rgba(220,230,240,0.08) 0%, rgba(220,230,240,0.45) 40%, rgba(220,230,240,0.55) 60%, rgba(220,230,240,0.08) 100%);
+      opacity: 0.8;
+      filter: blur(2.5px);
+      pointer-events: none;
+      z-index: 10002;
+      animation: fogline-slide 0.7s cubic-bezier(.4,2,.3,1) forwards;
+    }
+    @keyframes fogline-slide {
+      0% { left: -120vw; opacity: 0.2; }
+      60% { left: 0vw; opacity: 0.8; }
+      100% { left: 0vw; opacity: 1; }
+    }
+    /* Cartoon Tornado */
+    .tornado {
+      position: absolute;
+      right: -180px;
+      top: 25vh;
+      width: 200px;
+      height: 320px;
+      background: none;
+      z-index: 10000;
+      overflow: visible;
+      animation: tornado-move 4s linear forwards;
+      pointer-events: none;
+    }
+    .tornado .cone {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 320px;
+      background: linear-gradient(180deg, #e3ecf7 0%, #bbb 60%, #888 100%);
+      opacity: 0.85;
+      box-shadow: 0 0 60px #888;
+      transform: rotate(8deg);
+      /* Upside-down obtuse triangle */
+      clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    }
+    .tornado .swirl {
+      position: absolute;
+      left: 30px;
+      width: 140px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(180,180,180,0.3);
+      animation: swirl-move 1.2s infinite linear;
+    }
+    .tornado .swirl1 { top: 60px; animation-delay: 0s; }
+    .tornado .swirl2 { top: 120px; animation-delay: 0.2s; }
+    .tornado .swirl3 { top: 180px; animation-delay: 0.4s; }
+    .tornado .swirl4 { top: 240px; animation-delay: 0.6s; }
+    .tornado .swirl5 { top: 280px; animation-delay: 0.8s; }
+    @keyframes swirl-move {
+      0% { left: 20px; }
+      50% { left: 30px; }
+      100% { left: 20px; }
+    }
+    @keyframes tornado-move {
+      0% { right: -120px; transform: rotate(-10deg) scaleX(1); }
+      30% { transform: rotate(10deg) scaleX(1.1); }
+      60% { transform: rotate(-8deg) scaleX(0.95); }
+      100% { right: 110vw; transform: rotate(0deg) scaleX(1); }
+    }
+    /* Lightning flash */
+    .lightning {
+      position: absolute;
+      width: 8px;
+      height: 120px;
+      background: linear-gradient(180deg, #fff 60%, #ffe066 100%, #fff 0%);
+      box-shadow: 0 0 32px 12px #fff, 0 0 64px 24px #ffe066;
+      border-radius: 4px;
+      opacity: 0.85;
+      z-index: 10001;
+      animation: lightning-flash 0.7s cubic-bezier(.4,2,.3,1);
+      pointer-events: none;
+      transform: skewX(-18deg);
+    }
+    @keyframes lightning-flash {
+      0% { opacity: 0; filter: blur(2px); }
+      10% { opacity: 1; filter: blur(0px); }
+      60% { opacity: 1; filter: blur(0px); }
+      100% { opacity: 0; filter: blur(2px); }
     }
   </style>
 </head>
@@ -198,7 +344,7 @@
       </p>
     </div>
     <div style="flex:1; min-width:300px;">
-      <img src="images/soren_namibia.jpg" width="350" height="400" title="S&oslash;ren Borg Thorsen">
+      <img id="headshot" src="images/2025headshot.JPG" style="width: 350px; height: 350px; border-radius: 50%; border: 6px solid #222a3f; object-fit: cover; aspect-ratio: 1 / 1; box-shadow: 0 8px 32px rgba(34,42,63,0.18), 0 0 0 10px #e3ecf7; transition: box-shadow 0.3s cubic-bezier(.4,0,.2,1);" title="Søren Borg Thorsen">
       <div class="contact-card">
         <h4>Contact information</h4>
         <p>E-mail: <script type="text/javascript">
@@ -209,5 +355,97 @@
       </div>
     </div>
   </div>
+  <div id="effectOverlay" class="effect-overlay hide"></div>
+  <script>
+    function randomEffect() {
+      const effects = ['rain', 'snow', 'tornado', 'rainlightning', 'clouds'];
+      return effects[Math.floor(Math.random() * effects.length)];
+    }
+    function showEffect(effect) {
+      const overlay = document.getElementById('effectOverlay');
+      overlay.innerHTML = '';
+      overlay.className = 'effect-overlay';
+      overlay.style.background = 'transparent';
+      if (effect === 'rain') {
+        for (let i = 0; i < 60; i++) {
+          const drop = document.createElement('div');
+          drop.className = 'raindrop';
+          drop.style.left = Math.random() * 100 + 'vw';
+          drop.style.animationDelay = (Math.random() * 2.5) + 's';
+          overlay.appendChild(drop);
+        }
+        overlay.style.background = 'rgba(200,220,255,0.08)';
+      } else if (effect === 'snow') {
+        for (let i = 0; i < 40; i++) {
+          const flake = document.createElement('div');
+          flake.className = 'snowflake';
+          flake.style.left = Math.random() * 100 + 'vw';
+          flake.style.animationDelay = (Math.random() * 6) + 's';
+          overlay.appendChild(flake);
+        }
+        overlay.style.background = 'rgba(255,255,255,0.10)';
+      } else if (effect === 'tornado') {
+        const tornado = document.createElement('div');
+        tornado.className = 'tornado';
+        const cone = document.createElement('div');
+        cone.className = 'cone';
+        tornado.appendChild(cone);
+        for (let i = 1; i <= 5; i++) {
+          const swirl = document.createElement('div');
+          swirl.className = 'swirl swirl' + i;
+          tornado.appendChild(swirl);
+        }
+        overlay.appendChild(tornado);
+      } else if (effect === 'rainlightning') {
+        for (let i = 0; i < 60; i++) {
+          const drop = document.createElement('div');
+          drop.className = 'raindrop';
+          drop.style.left = Math.random() * 100 + 'vw';
+          drop.style.animationDelay = (Math.random() * 2.5) + 's';
+          overlay.appendChild(drop);
+        }
+        overlay.style.background = 'rgba(200,220,255,0.12)';
+        // Lightning flashes
+        for (let l = 0; l < 3; l++) {
+          setTimeout(() => {
+            const lightning = document.createElement('div');
+            lightning.className = 'lightning';
+            lightning.style.left = (30 + Math.random()*40) + 'vw';
+            lightning.style.top = (10 + Math.random()*40) + 'vh';
+            overlay.appendChild(lightning);
+            setTimeout(() => overlay.removeChild(lightning), 700);
+          }, 1200 + l*1200);
+        }
+      } else if (effect === 'clouds') {
+        // FOG LINES: thinner, rapid, random heights, near-total coverage
+        let lines = 0;
+        const maxLines = 120; // Increased for 99% coverage
+        function addFogLine() {
+          lines++;
+          const fogLine = document.createElement('div');
+          fogLine.className = 'fog-line';
+          fogLine.style.top = (Math.random()*92) + 'vh';
+          fogLine.style.opacity = Math.min(0.5 + lines*0.008, 1);
+          overlay.appendChild(fogLine);
+          if (lines < maxLines) {
+            setTimeout(addFogLine, 20);
+          }
+        }
+        addFogLine();
+      }
+      overlay.classList.remove('hide');
+      // Auto-close after 5 seconds
+      setTimeout(hideEffect, 5000);
+    }
+    function hideEffect() {
+      const overlay = document.getElementById('effectOverlay');
+      overlay.classList.add('hide');
+      overlay.innerHTML = '';
+      overlay.classList.remove('darkmode');
+    }
+    document.getElementById('headshot').onclick = function() {
+      showEffect(randomEffect());
+    };
+  </script>
 </body>
 </html>
