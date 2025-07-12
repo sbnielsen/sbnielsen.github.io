@@ -93,6 +93,19 @@
       font-size: 1rem;
       color: #222a3f;
     }
+    .publication a {
+      word-break: break-all;
+      display: inline-block;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      font-size: 0.98rem;
+    }
+    @media (max-width: 600px) {
+      .publication a {
+        font-size: 0.92rem;
+        max-width: 95vw;
+      }
+    }
     @media (max-width: 900px) {
       .main-content {
         flex-direction: column;
