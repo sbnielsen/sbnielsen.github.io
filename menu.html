@@ -81,11 +81,19 @@
         align-items: flex-start;
         padding: 0;
         background: #222a3f;
+        position: static;
+        width: 100vw;
+        height: auto;
+        z-index: 1000;
+        box-shadow: none;
+      }
+      .navbar.active {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
+        background: #222a3f;
         z-index: 1000;
         box-shadow: none;
       }
