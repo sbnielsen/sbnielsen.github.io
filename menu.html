@@ -203,16 +203,24 @@
 
     // Desktop: hover, Mobile: slide-in submenu
     function enableMobileDropdown() {
+      // Remove previous listeners to avoid duplicates
+      dropdown.onclick = null;
+      backArrow.onclick = null;
+      document.onclick = null;
+      // Open dropdown on click
       dropdown.addEventListener('click', function(e) {
         if (!isMobile()) return;
         e.preventDefault();
         dropdownContent.classList.add('active');
         backArrow.style.display = 'block';
       });
+      // Back arrow closes dropdown
       backArrow.addEventListener('click', function(e) {
+        e.stopPropagation();
         dropdownContent.classList.remove('active');
         backArrow.style.display = 'none';
       });
+      // Click outside closes dropdown
       document.addEventListener('click', function(e) {
         if (!dropdown.contains(e.target) && !dropdownContent.contains(e.target) && isMobile()) {
           dropdownContent.classList.remove('active');
