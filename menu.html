@@ -86,8 +86,10 @@
         height: auto;
         z-index: 1000;
         box-shadow: none;
+        display: none;
       }
       .navbar.active {
+        display: flex;
         position: fixed;
         top: 0;
         left: 0;
@@ -207,9 +209,13 @@
       dropdown.onclick = null;
       backArrow.onclick = null;
       document.onclick = null;
-      // Open dropdown on click
+      // Open dropdown on click (only if not clicking a submenu link)
       dropdown.addEventListener('click', function(e) {
         if (!isMobile()) return;
+        // Only open dropdown if not clicking a submenu link
+        if (e.target.tagName === 'A' && e.target.parentElement.parentElement.classList.contains('dropdown-content')) {
+          return;
+        }
         e.preventDefault();
         dropdownContent.classList.add('active');
         backArrow.style.display = 'block';
