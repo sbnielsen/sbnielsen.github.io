@@ -9,8 +9,8 @@
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Foundation CSS -->
-  <link rel="stylesheet" href="css/foundation.css">
-  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="/css/foundation.css">
+  <link rel="stylesheet" href="/css/app.css">
   <style>
     body {
       font-family: 'Montserrat', Arial, sans-serif;
@@ -19,7 +19,7 @@
       padding: 0;
     }
     .navbar {
-      background: url('images/greenbar.jpg') no-repeat left top fixed;
+      background: url('/images/greenbar.jpg') no-repeat left top fixed;
       background-size: cover;
       color: #fff;
       display: flex;
@@ -86,8 +86,10 @@
         height: auto;
         z-index: 1000;
         box-shadow: none;
+        display: none;
       }
       .navbar.active {
+        display: flex;
         position: fixed;
         top: 0;
         left: 0;
@@ -207,9 +209,13 @@
       dropdown.onclick = null;
       backArrow.onclick = null;
       document.onclick = null;
-      // Open dropdown on click
+      // Open dropdown on click (only if not clicking a submenu link)
       dropdown.addEventListener('click', function(e) {
         if (!isMobile()) return;
+        // Only open dropdown if not clicking a submenu link
+        if (e.target.tagName === 'A' && e.target.parentElement.parentElement.classList.contains('dropdown-content')) {
+          return;
+        }
         e.preventDefault();
         dropdownContent.classList.add('active');
         backArrow.style.display = 'block';
