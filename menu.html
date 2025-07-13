@@ -77,35 +77,44 @@
     }
     @media (max-width: 700px) {
       .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 1rem;
         background: #222a3f;
-        position: static;
-        width: 100vw;
-        height: auto;
-        z-index: 1000;
-        box-shadow: none;
-        display: none;
-      }
-      .navbar.active {
-        display: flex;
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
-        height: 100vh;
-        background: #222a3f;
+        height: 3.5rem;
         z-index: 1000;
         box-shadow: none;
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 0.75rem;
+        right: 1.5rem;
+        font-size: 2rem;
+        color: #fff;
+        z-index: 2001;
+        cursor: pointer;
       }
       .navbar ul {
         flex-direction: column;
         width: 100vw;
         background: #222a3f;
-        position: static;
-        margin-top: 3.5rem;
+        position: fixed;
+        top: 3.5rem;
+        left: 0;
+        margin: 0;
         padding: 0;
+        display: none;
+        z-index: 1001;
+      }
+      .navbar.active ul {
+        display: flex;
       }
       .navbar li {
         width: 100vw;
@@ -117,15 +126,6 @@
         padding: 1.2rem 2rem;
         justify-content: flex-start;
       }
-      .menu-toggle {
-        display: block;
-        position: absolute;
-        top: 1rem;
-        right: 1.5rem;
-        font-size: 2rem;
-        z-index: 1100;
-        color: #fff;
-      }
       .dropdown-content {
         position: fixed;
         top: 0;
@@ -135,16 +135,18 @@
         background: #222a3f;
         box-shadow: none;
         border-radius: 0;
-        opacity: 1;
+        opacity: 0;
         transform: none;
-        transition: left 0.3s cubic-bezier(.4,0,.2,1);
+        transition: left 0.3s cubic-bezier(.4,0,.2,1), opacity 0.3s;
         padding-top: 3.5rem;
-        display: block;
+        display: none;
         pointer-events: auto;
         z-index: 1200;
       }
       .dropdown-content.active {
         left: 0;
+        display: block !important;
+        opacity: 1 !important;
       }
       .dropdown-content .back-arrow {
         display: block;
@@ -153,12 +155,9 @@
         margin: 0 0 1rem 1rem;
         cursor: pointer;
       }
-    }
-    .navbar.active {
-      background: rgba(34, 42, 63, 0.9);
-    }
-    .menu-toggle {
-      display: none;
+      .navbar.active {
+        background: rgba(34, 42, 63, 0.9);
+      }
     }
   </style>
 </head>
@@ -212,25 +211,29 @@
       // Open dropdown on click (only if not clicking a submenu link)
       dropdown.addEventListener('click', function(e) {
         if (!isMobile()) return;
-        // Only open dropdown if not clicking a submenu link
-        if (e.target.tagName === 'A' && e.target.parentElement.parentElement.classList.contains('dropdown-content')) {
+        // Only open dropdown if clicking the main Projects link (not submenu links)
+        if (e.target.closest('.dropdown-content a')) {
+          // Allow submenu links to work normally
           return;
         }
         e.preventDefault();
         dropdownContent.classList.add('active');
         backArrow.style.display = 'block';
+        navbar.querySelector('ul').classList.add('hide-menu'); // Hide main menu
       });
       // Back arrow closes dropdown
       backArrow.addEventListener('click', function(e) {
         e.stopPropagation();
         dropdownContent.classList.remove('active');
         backArrow.style.display = 'none';
+        navbar.querySelector('ul').classList.remove('hide-menu'); // Show main menu
       });
       // Click outside closes dropdown
       document.addEventListener('click', function(e) {
         if (!dropdown.contains(e.target) && !dropdownContent.contains(e.target) && isMobile()) {
           dropdownContent.classList.remove('active');
           backArrow.style.display = 'none';
+          navbar.querySelector('ul').classList.remove('hide-menu'); // Show main menu
         }
       });
     }
