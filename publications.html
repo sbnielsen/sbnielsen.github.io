@@ -177,6 +177,8 @@
     <!-- We include all the unminified JS as well. Uncomment to use them instead -->
 
     <!-- Included JS Files (Minified) -->
+    <!-- Foundation 5 relies on APIs removed in jQuery 3; Migrate restores them -->
+    <script src="/js/vendor/jquery-migrate.js"></script>
     <script src="/js/foundation.min.js"></script>
 
     <!-- Initialize JS Plugins -->
@@ -188,46 +190,6 @@
     <script src="javascripts/foundation.js"></script> -->
   <script>
     $(document).foundation();
-  </script>
-  <script>
-    // Responsive menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const navbar = document.getElementById('navbar');
-    menuToggle.addEventListener('click', function() {
-      navbar.classList.toggle('active');
-    });
-
-    // Dropdown hover timeout
-    const dropdown = document.getElementById('projects-dropdown');
-    const dropdownContent = dropdown.querySelector('.dropdown-content');
-    let dropdownTimeout;
-
-    dropdown.addEventListener('mouseenter', function() {
-      clearTimeout(dropdownTimeout);
-      dropdownContent.style.display = 'block';
-      dropdownContent.style.opacity = '1';
-      dropdownContent.style.transform = 'translateY(0)';
-    });
-    dropdown.addEventListener('mouseleave', function() {
-      dropdownTimeout = setTimeout(function() {
-        dropdownContent.style.display = '';
-        dropdownContent.style.opacity = '';
-        dropdownContent.style.transform = '';
-      }, 500);
-    });
-    dropdownContent.addEventListener('mouseenter', function() {
-      clearTimeout(dropdownTimeout);
-      dropdownContent.style.display = 'block';
-      dropdownContent.style.opacity = '1';
-      dropdownContent.style.transform = 'translateY(0)';
-    });
-    dropdownContent.addEventListener('mouseleave', function() {
-      dropdownTimeout = setTimeout(function() {
-        dropdownContent.style.display = '';
-        dropdownContent.style.opacity = '';
-        dropdownContent.style.transform = '';
-      }, 500);
-    });
   </script>
 
 
